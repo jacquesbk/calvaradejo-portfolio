@@ -5,16 +5,20 @@ interface SectionProps {
   title: string
   children: ReactNode
   className?: string
+  /** Override inner content wrapper (default: centered max-w-5xl) */
+  innerClassName?: string
 }
 
-export function Section({ id, title, children, className = '' }: SectionProps) {
+const defaultSectionClass = 'scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8'
+
+export function Section({ id, title, children, className, innerClassName }: SectionProps) {
   return (
     <section
       id={id}
-      className={`scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 ${className}`}
+      className={className ?? defaultSectionClass}
       aria-labelledby={`${id}-heading`}
     >
-      <div className="mx-auto max-w-5xl">
+      <div className={innerClassName ?? 'mx-auto max-w-5xl'}>
         <h2
           id={`${id}-heading`}
           className="font-display text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl"

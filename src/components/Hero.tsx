@@ -1,14 +1,14 @@
 import { site, assetUrl } from '../content/site'
+import { SECTION_INDEX, useSectionNav } from '../context/SectionNavContext'
 
 export function Hero() {
+  const { goTo } = useSectionNav()
+
   return (
-    <div className="border-b border-[var(--color-border)]">
-      <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28">
+    <div>
+      <div className="mx-auto max-w-5xl">
         <div className="max-w-xl">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">
-            {site.heroEyebrow}
-          </p>
-          <h1 className="font-display mt-3 text-4xl font-semibold leading-tight tracking-tight text-slate-50 sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="font-display text-4xl font-semibold leading-tight tracking-tight text-slate-50 sm:text-5xl lg:text-[3.25rem]">
             {site.siteName}
           </h1>
           <p className="mt-2 text-lg font-medium text-violet-100">{site.professionalTitle}</p>
@@ -16,12 +16,13 @@ export function Hero() {
             {site.tagline}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#work"
+            <button
+              type="button"
+              onClick={() => goTo(SECTION_INDEX.work)}
               className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent-dim)] px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-violet-950/30 transition hover:bg-violet-600"
             >
               {site.ctaPrimary}
-            </a>
+            </button>
             <a
               href={assetUrl(site.resume.href)}
               download

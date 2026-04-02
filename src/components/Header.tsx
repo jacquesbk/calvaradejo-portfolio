@@ -1,41 +1,51 @@
 import { useState } from 'react'
 import { site } from '../content/site'
+import { SECTION_INDEX, useSectionNav } from '../context/SectionNavContext'
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const { goTo, activeIndex } = useSectionNav()
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#work', label: site.navWorkLabel },
-    { href: '#contact', label: 'Contact' },
+    { index: SECTION_INDEX.home, label: 'Home' },
+    { index: SECTION_INDEX.about, label: 'About Me' },
+    { index: SECTION_INDEX.identity, label: site.aboutIdentity.title },
+    { index: SECTION_INDEX.cv, label: site.cvSectionTitle },
+    { index: SECTION_INDEX.work, label: site.navWorkLabel },
+    { index: SECTION_INDEX.contact, label: 'Contact' },
   ]
 
+  const navigate = (index: number) => {
+    goTo(index)
+    setOpen(false)
+  }
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-surface)]/90 backdrop-blur-md">
+    <header className="z-50 shrink-0 border-b border-[var(--color-border)] bg-[var(--color-surface)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <a
-          href="#"
-          className="font-display text-lg font-semibold tracking-tight text-white transition hover:text-[var(--color-accent)]"
+        <button
+          type="button"
+          onClick={() => navigate(SECTION_INDEX.home)}
+          className="font-display text-left text-lg font-semibold tracking-tight text-white transition hover:text-[var(--color-accent)]"
         >
           {site.siteName}
-        </a>
+        </button>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-[var(--color-muted)] transition hover:text-white"
+            <button
+              key={item.index}
+              type="button"
+              onClick={() => navigate(item.index)}
+              className={`text-sm font-medium transition ${
+                activeIndex === item.index
+                  ? 'text-white'
+                  : 'text-[var(--color-muted)] hover:text-white'
+              }`}
             >
               {item.label}
-            </a>
+            </button>
           ))}
-          <a
-            href="#work"
-            className="rounded-full bg-[var(--color-accent-dim)] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-violet-950/40 transition hover:bg-violet-600"
-          >
-            {site.navCta}
-          </a>
         </nav>
 
         <button
@@ -65,22 +75,17 @@ export function Header() {
         >
           <nav className="flex flex-col gap-4" aria-label="Mobile">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-base font-medium text-[var(--color-muted)]"
-                onClick={() => setOpen(false)}
+              <button
+                key={item.index}
+                type="button"
+                onClick={() => navigate(item.index)}
+                className={`text-left text-base font-medium ${
+                  activeIndex === item.index ? 'text-white' : 'text-[var(--color-muted)]'
+                }`}
               >
                 {item.label}
-              </a>
+              </button>
             ))}
-            <a
-              href="#work"
-              className="rounded-full bg-[var(--color-accent-dim)] px-4 py-3 text-center text-sm font-semibold text-white"
-              onClick={() => setOpen(false)}
-            >
-              {site.navCta}
-            </a>
           </nav>
         </div>
       )}

@@ -30,3 +30,7 @@ npm run preview   # optional: test production build locally
 ```bash
 npm run lint
 ```
+
+## Deploy (Vercel)
+
+Import the repo in [Vercel](https://vercel.com) with the project root set to `Clau-portfolio` (or deploy from this folder). [`vercel.json`](vercel.json) sets the Vite build (`npm run build` → `dist`) and SPA rewrites; existing files in `dist` (PDFs, images, `assets/`) are still served before the fallback.

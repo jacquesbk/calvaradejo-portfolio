@@ -24,29 +24,42 @@ export interface SocialLink {
 export const site = {
   siteName: 'Claudia Alvaradejo',
   /** Shown near the name; align wording with your resume (degree title, license when applicable). */
-  professionalTitle: 'Psychologist · M.A. in Counseling',
+  professionalTitle: 'M.S in Clinical Psychology, MFT/LPCC Intern',
   tagline:
     'Clinical training, reflective practice, and relationship-centered care — with attention to trauma, identity, and resilience.',
-  /** Short bio — expand with bullets from Resume_Alvaradejo.pdf (education, practicum, licenses). */
   about: [
-    'Claudia Alvaradejo is a psychologist who has recently completed a Master of Arts in Counseling. Her preparation weaves together psychological science, ethical practice, and collaborative ways of working with individuals, couples, and families across the lifespan.',
-    'She is interested in how culture, attachment, and life story shape emotional health, and she grounds her work in evidence-informed approaches while staying curious, warm, and human. Reflective writing, expressive projects, and trauma-focused literature have been part of how she studies care for the whole person — mind, body, and context.',
-    'The PDFs below sample selected coursework and readings from her graduate journey (including creative-arts reflection and trauma-related material). For full academic history, clinical training, and professional experience, please use the resume.',
+    'Claudia Alvaradejo is a bilingual, bicultural therapist whose professional identity is shaped by extensive clinical experience in both Mexico and the United States. With degrees in Psychology and Clinical Psychology from Mexico and a Master of Science in Counseling from NDNU, she brings a deep cross-cultural lens to her collaborative clinical approach.',
+    'Her clinical foundation began in Mexico, where she provided vital support to children and families navigating the complexities of cancer and disabilities. Since moving to the United States, she has specialized in school-based counseling at One Life Counseling Center. In this role, she serves newcomer students and elementary-aged children in San Mateo and Redwood City, bridging the gap between clinical depth and the practical needs of the school environment.',
   ],
+  aboutIdentity: {
+    /** Main heading for the Identity panel */
+    title: 'Identity as a Psychotherapist',
+    paragraphs: [
+      "My identity as a therapist is built on the belief that a child's most profound stories are often told without words. I am a psychodynamically oriented therapist dedicated to the healing of children, particularly those within immigrant communities who have navigated the weight of profound trauma. To me, behavior is a language. Whether I am helping a child decode a nightmare by recognizing that a 'monster with a red shirt' is actually a fragmented memory of a traumatic past, or providing a safe container for aggressive play, my goal is to look beyond the symptom to the child underneath.",
+      'I balance the depth of psychodynamic inquiry with the practicality of school-based support, ensuring that immediate care is always informed by a deeper understanding. This is evident in my work with child-centered play therapy, where I might spend weeks as a steady, regulated presence while a child uses plush toys to "attack" and process the violent loss of a parent. I strive to offer a space where limits are set with care, silence is heard, and play is transformative. My mission is to ensure that every child is seen and heard within the full context of their history and culture.',
+    ],
+  },
   email: 'hello@example.com',
-  /** Hero eyebrow + CTAs (edit to match your voice) */
-  heroEyebrow: 'Psychology & counseling',
   ctaPrimary: 'Selected writings & materials',
   ctaSecondary: 'Download resume (PDF)',
-  /** Sticky nav CTA — scrolls to #work */
-  navCta: 'View materials',
-  /** Nav: second section anchor label */
-  navWorkLabel: 'Materials',
+  /** Nav: work / portfolio panel label */
+  navWorkLabel: 'Coursework',
+  /** Horizontal panel: embedded resume viewer */
+  cvSectionTitle: 'Curriculum Vitae',
   /** Section heading above the PDF/image grid */
   workSectionTitle: 'Coursework, readings & creative reflection',
   socialLinks: [] as SocialLink[],
-  /** Full-page background image (fixed in Layout; alt empty) */
-  heroImage: {
+  /**
+   * Home panel only: full-screen video (plays once). File in /public/.
+   */
+  backgroundVideo: {
+    src: '/video background.mov',
+  },
+  /**
+   * All other horizontal panels (About, Identity, CV, Coursework, Contact): this still image.
+   * Also used as the video poster while the home clip loads.
+   */
+  sectionBackgroundImage: {
     src: '/installation-srgm-nick-cave-forothermore-2022-2023-tondo-2.jpg',
   },
   resume: {

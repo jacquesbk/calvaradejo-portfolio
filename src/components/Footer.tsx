@@ -2,10 +2,7 @@ import { site, assetUrl } from '../content/site'
 
 export function Footer() {
   return (
-    <footer
-      id="contact"
-      className="border-t border-[var(--color-border)] bg-[var(--color-surface-elevated)]/50"
-    >
+    <footer id="contact" className="w-full">
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
