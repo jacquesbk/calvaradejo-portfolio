@@ -1,9 +1,6 @@
-import { site, assetUrl } from '../content/site'
-import { SECTION_INDEX, useSectionNav } from '../context/SectionNavContext'
+import { site } from '../content/site'
 
 export function Hero() {
-  const { goTo } = useSectionNav()
-
   return (
     <div>
       <div className="mx-auto max-w-5xl">
@@ -15,22 +12,6 @@ export function Hero() {
           <p className="mt-5 text-lg leading-relaxed text-[var(--color-muted)]">
             {site.tagline}
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <button
-              type="button"
-              onClick={() => goTo(SECTION_INDEX.work)}
-              className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent-dim)] px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-violet-950/30 transition hover:bg-violet-600"
-            >
-              {site.ctaPrimary}
-            </button>
-            <a
-              href={assetUrl(site.resume.href)}
-              download
-              className="inline-flex items-center justify-center rounded-full border border-[var(--color-border)] px-6 py-3 text-sm font-semibold text-white transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-            >
-              {site.ctaSecondary}
-            </a>
-          </div>
         </div>
       </div>
     </div>

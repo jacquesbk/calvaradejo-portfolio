@@ -40,8 +40,6 @@ export const site = {
     ],
   },
   email: 'hello@example.com',
-  ctaPrimary: 'Selected writings & materials',
-  ctaSecondary: 'Download resume (PDF)',
   /** Nav: work / portfolio panel label */
   navWorkLabel: 'Coursework',
   /** Horizontal panel: embedded resume viewer */
@@ -49,16 +47,7 @@ export const site = {
   /** Section heading above the PDF/image grid */
   workSectionTitle: 'Coursework, readings & creative reflection',
   socialLinks: [] as SocialLink[],
-  /**
-   * Home panel only: full-screen video (plays once). File in /public/.
-   */
-  backgroundVideo: {
-    src: '/video background.mov',
-  },
-  /**
-   * All other horizontal panels (About, Identity, CV, Coursework, Contact): this still image.
-   * Also used as the video poster while the home clip loads.
-   */
+  /** Full-screen background image behind all horizontal panels (Home through Contact). */
   sectionBackgroundImage: {
     src: '/installation-srgm-nick-cave-forothermore-2022-2023-tondo-2.jpg',
   },
