@@ -8,7 +8,7 @@ import { site } from './content/site'
 import { useSectionNav } from './context/SectionNavContext'
 
 const panelClass =
-  'flex h-full min-w-full shrink-0 snap-center snap-always flex-col overflow-y-auto overflow-x-hidden overscroll-y-contain'
+  'flex h-full min-h-0 min-w-full shrink-0 snap-center snap-always flex-col overflow-y-auto overflow-x-hidden overscroll-y-contain'
 
 export default function App() {
   const { scrollRef } = useSectionNav()
@@ -17,7 +17,7 @@ export default function App() {
     <Layout>
       <div
         ref={scrollRef}
-        className="flex h-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden [-webkit-overflow-scrolling:touch]"
+        className="flex h-full min-h-0 snap-x snap-mandatory overflow-x-auto overflow-y-hidden [-webkit-overflow-scrolling:touch]"
         tabIndex={0}
         aria-label="Page sections"
       >

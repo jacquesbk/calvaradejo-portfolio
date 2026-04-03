@@ -1,57 +1,57 @@
+import { useState } from 'react'
 import { Section } from './Section'
-import { ResumePdfViewer } from './ResumePdfViewer'
+import { PdfModal } from './PdfModal'
 import { site, assetUrl } from '../content/site'
 
 interface CurriculumVitaePanelProps {
   panelClass: string
 }
 
-/** ~75% of viewport width; does not exceed panel width */
-const viewerWidthClass = 'w-[min(100%,75vw)]'
-
 export function CurriculumVitaePanel({ panelClass }: CurriculumVitaePanelProps) {
   const resumeSrc = assetUrl(site.resume.href)
+  const [isViewerOpen, setIsViewerOpen] = useState(false)
 
   return (
-    <Section
-      id="cv"
-      title={site.cvSectionTitle}
-      className={`${panelClass} border-l border-[var(--color-border)]/40 bg-[var(--color-surface-elevated)]/25 px-4 py-8 sm:px-6 sm:py-10 lg:px-8`}
-      innerClassName="mx-auto w-full max-w-none text-center"
-    >
-      <div className={`mx-auto flex flex-col items-center gap-5 ${viewerWidthClass}`}>
-        <div
-          className="w-full overflow-hidden rounded-xl border border-[var(--color-border)] bg-slate-900/50 shadow-inner"
-          role="region"
-          aria-label={site.cvSectionTitle}
-        >
-          <ResumePdfViewer file={resumeSrc} title={site.cvSectionTitle} />
+    <>
+      <Section
+        id="cv"
+        title={site.cvSectionTitle}
+        className={`${panelClass} border-l border-[var(--color-border)]/40 bg-[var(--color-surface-elevated)]/25 px-4 py-8 sm:px-6 sm:py-10 lg:px-8`}
+      >
+        <div className="grid gap-6 sm:grid-cols-2">
+          <article className="flex h-full flex-col rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)]/80 p-6 shadow-lg shadow-black/20 transition hover:border-[var(--color-accent)]/40">
+            <h3 className="font-display text-xl font-semibold text-white">{site.resume.label}</h3>
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--color-muted)]">
+              View the curriculum vitae in the site viewer or download a copy.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3" aria-label="Resume actions">
+              <button
+                type="button"
+                onClick={() => setIsViewerOpen(true)}
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-[var(--color-accent-dim)] px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-violet-600 sm:flex-initial"
+              >
+                View PDF
+              </button>
+              <a
+                href={resumeSrc}
+                download
+                className="inline-flex flex-1 items-center justify-center rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] sm:flex-initial"
+              >
+                Download
+              </a>
+            </div>
+          </article>
         </div>
+      </Section>
 
-        <div
-          className="flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center"
-          aria-label="Resume actions"
-        >
-          <a
-            href={resumeSrc}
-            download
-            className="inline-flex flex-1 items-center justify-center rounded-lg bg-[var(--color-accent-dim)] px-4 py-3 text-center text-sm font-semibold text-white shadow-lg transition hover:bg-violet-600 sm:flex-initial sm:min-w-[10rem]"
-          >
-            Download PDF
-          </a>
-          <a
-            href={resumeSrc}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center rounded-lg border border-[var(--color-border)] px-4 py-3 text-center text-sm font-semibold text-white transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] sm:flex-initial sm:min-w-[10rem]"
-          >
-            Open in new tab
-          </a>
-        </div>
-        <p className="w-full text-xs leading-relaxed text-[var(--color-muted)]">
-          If the viewer does not load in your browser, use Open in new tab or Download.
-        </p>
-      </div>
-    </Section>
+      {isViewerOpen ? (
+        <PdfModal
+          isOpen
+          onClose={() => setIsViewerOpen(false)}
+          title={site.cvSectionTitle}
+          pdfSrc={resumeSrc}
+        />
+      ) : null}
+    </>
   )
 }

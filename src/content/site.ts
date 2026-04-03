@@ -14,6 +14,11 @@ export interface PortfolioItem {
   kind: PortfolioKind
   /** Large PDFs: prefer download-only UX */
   largeFile?: boolean
+  /** Optional additional downloadable variants (e.g. PDF + PPTX). */
+  downloadOptions?: readonly {
+    label: string
+    href: string
+  }[]
 }
 
 export interface SocialLink {
@@ -45,7 +50,7 @@ export const site = {
   /** Horizontal panel: embedded resume viewer */
   cvSectionTitle: 'Curriculum Vitae',
   /** Section heading above the PDF/image grid */
-  workSectionTitle: 'Coursework, readings & creative reflection',
+  workSectionTitle: 'Coursework',
   socialLinks: [] as SocialLink[],
   /** Full-screen background image behind all horizontal panels (Home through Contact). */
   sectionBackgroundImage: {
@@ -73,6 +78,14 @@ export const site = {
       kind: 'pdf',
     },
     {
+      id: 'play-therapy',
+      title: 'Play Therapy',
+      description:
+        'Coursework on child-centered play therapy — theory, technique, and reflective practice aligned with school-based and clinical work with children.',
+      href: '/Play Therapy.pdf',
+      kind: 'pdf',
+    },
+    {
       id: 'waking-the-tiger',
       title: 'Waking the Tiger',
       description:
@@ -80,6 +93,24 @@ export const site = {
       href: '/Waking the Tiger.pdf',
       kind: 'pdf',
       largeFile: true,
+    },
+    {
+      id: 'strength-in-uncertainty',
+      title: 'Strength in Uncertainty',
+      description:
+        'Presentation resource exploring support, resilience, and belonging for immigrant students and dreamers.',
+      href: '/Strength in Uncertainty  A Safe Space for Dreamers.pdf',
+      kind: 'pdf',
+      downloadOptions: [
+        {
+          label: 'Download PDF',
+          href: '/Strength in Uncertainty  A Safe Space for Dreamers.pdf',
+        },
+        {
+          label: 'Download PPTX',
+          href: '/Strength in Uncertainty  A Safe Space for Dreamers.pptx',
+        },
+      ],
     },
   ] satisfies PortfolioItem[],
 } as const

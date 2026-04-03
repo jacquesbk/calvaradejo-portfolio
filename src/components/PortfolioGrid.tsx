@@ -19,6 +19,10 @@ export function PortfolioGrid({ items }: PortfolioGridProps) {
       <ul className="grid gap-6 sm:grid-cols-2">
         {items.map((item) => {
           const href = assetUrl(item.href)
+          const downloadOptions = item.downloadOptions?.map((option) => ({
+            label: option.label,
+            href: assetUrl(option.href),
+          }))
           if (item.kind === 'image') {
             return (
               <li key={item.id}>
@@ -83,13 +87,26 @@ export function PortfolioGrid({ items }: PortfolioGridProps) {
                   >
                     View PDF
                   </button>
-                  <a
-                    href={href}
-                    download
-                    className="inline-flex flex-1 items-center justify-center rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] sm:flex-initial"
-                  >
-                    Download
-                  </a>
+                  {downloadOptions && downloadOptions.length > 0 ? (
+                    downloadOptions.map((option) => (
+                      <a
+                        key={option.label}
+                        href={option.href}
+                        download
+                        className="inline-flex flex-1 items-center justify-center rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] sm:flex-initial"
+                      >
+                        {option.label}
+                      </a>
+                    ))
+                  ) : (
+                    <a
+                      href={href}
+                      download
+                      className="inline-flex flex-1 items-center justify-center rounded-lg border border-[var(--color-border)] px-4 py-2.5 text-center text-sm font-semibold text-white transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] sm:flex-initial"
+                    >
+                      Download
+                    </a>
+                  )}
                 </div>
               </article>
             </li>
