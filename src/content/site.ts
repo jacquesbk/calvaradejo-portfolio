@@ -31,7 +31,7 @@ export const site = {
   /** Shown near the name; align wording with your resume (degree title, license when applicable). */
   professionalTitle: 'M.S in Clinical Psychology, MFT/LPCC Intern',
   tagline:
-    'Clinical training, reflective practice, and relationship-centered care — with attention to trauma, identity, and resilience.',
+    'Psychodynamic and child-centered approach, focused on creating a safe, attuned space where children can express themselves and find their voice.',
   about: [
     'Claudia Alvaradejo is a bilingual, bicultural therapist whose professional identity is shaped by extensive clinical experience in both Mexico and the United States. With degrees in Psychology and Clinical Psychology from Mexico and a Master of Science in Counseling from NDNU, she brings a deep cross-cultural lens to her collaborative clinical approach.',
     'Her clinical foundation began in Mexico, where she provided vital support to children and families navigating the complexities of cancer and disabilities. Since moving to the United States, she has specialized in school-based counseling at One Life Counseling Center. In this role, she serves newcomer students and elementary-aged children in San Mateo and Redwood City, bridging the gap between clinical depth and the practical needs of the school environment.',
@@ -98,7 +98,7 @@ export const site = {
       id: 'strength-in-uncertainty',
       title: 'Strength in Uncertainty',
       description:
-        'Presentation resource exploring support, resilience, and belonging for immigrant students and dreamers.',
+        'Therapy group proposal for DACA recipients focused on resilience, anxiety reduction, and future goals.',
       href: '/Strength in Uncertainty  A Safe Space for Dreamers.pdf',
       kind: 'pdf',
       downloadOptions: [
