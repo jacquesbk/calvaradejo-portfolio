@@ -77,7 +77,7 @@ export const site = {
       id: 'soul-collage',
       title: 'Soul Collage',
       description:
-        'Integrative collage and narrative work — expressive exploration connected to identity and inner life during clinical training.',
+        'Soul Collage inspired by a quote on trauma and healing, expressed through visual symbolism.',
       href: '/Soul Collage.pdf',
       kind: 'pdf',
     },
@@ -85,7 +85,7 @@ export const site = {
       id: 'play-therapy',
       title: 'Play Therapy',
       description:
-        'Coursework on child-centered play therapy — theory, technique, and reflective practice aligned with school-based and clinical work with children.',
+        'Coursework in play therapy exploring its theoretical foundations, clinical techniques, and use in supporting children’s emotional healing.',
       href: '/Play Therapy.pdf',
       kind: 'pdf',
     },
@@ -101,7 +101,7 @@ export const site = {
       id: 'waking-the-tiger',
       title: 'Waking the Tiger',
       description:
-        'Peter Levine’s work on trauma and the body (full PDF; large file). Complements trauma-informed counseling coursework — download recommended.',
+        'Presentation on Waking the Tiger, focused on understanding trauma and body-based healing, with brief inclusion of additional therapeutic approaches.',
       href: '/Waking the Tiger.pdf',
       kind: 'pdf',
       largeFile: true,
@@ -110,7 +110,7 @@ export const site = {
       id: 'strength-in-uncertainty',
       title: 'Strength in Uncertainty',
       description:
-        'Therapy group proposal for DACA recipients focused on resilience, anxiety reduction, and future goals.',
+        'Presentation of a therapy group proposal for DACA recipients centered on resilience, anxiety reduction, and future planning.',
       href: '/Strength in Uncertainty  A Safe Space for Dreamers.pdf',
       kind: 'pdf',
       downloadOptions: [
