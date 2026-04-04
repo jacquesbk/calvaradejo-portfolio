@@ -11,18 +11,18 @@ export function Footer() {
             <p className="mt-3 max-w-md text-sm text-[var(--color-muted)]">{site.tagline}</p>
           </div>
           <div className="flex flex-col gap-4 text-sm">
+            <img
+              src={assetUrl(site.homeImage.src)}
+              alt={site.homeImage.alt}
+              className="w-full max-w-[16rem] rounded-2xl border border-[var(--color-border)]/70 object-cover shadow-xl shadow-black/20"
+              loading="lazy"
+              decoding="async"
+            />
             <a
-              href={`mailto:${site.email}`}
-              className="font-medium text-[var(--color-accent)] transition hover:text-white"
-            >
-              {site.email}
-            </a>
-            <a
-              href={assetUrl(site.resume.href)}
-              download
+              href="tel:+16504020897"
               className="inline-flex w-fit items-center rounded-full border border-[var(--color-border)] px-4 py-2 font-semibold text-white transition hover:border-[var(--color-accent)]"
             >
-              {site.resume.label}
+              (650) 402-0897
             </a>
             {site.socialLinks.length > 0 && (
               <ul className="flex flex-wrap gap-4">
