@@ -6,11 +6,11 @@ export function Footer() {
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="font-display text-xl font-semibold text-white">{site.siteName}</p>
-            <p className="mt-1 text-sm font-medium text-violet-100">{site.professionalTitle}</p>
-            <p className="mt-3 max-w-md text-sm text-[var(--color-muted)]">{site.tagline}</p>
+            <p className="font-display text-2xl font-semibold text-white">{site.siteName}</p>
+            <p className="mt-1 text-base font-medium text-violet-100">{site.professionalTitle}</p>
+            <p className="mt-3 max-w-md text-base text-[var(--color-muted)]">{site.tagline}</p>
           </div>
-          <div className="flex flex-col gap-4 text-sm">
+          <div className="flex flex-col gap-4 text-base">
             <img
               src={assetUrl(site.homeImage.src)}
               alt={site.homeImage.alt}
@@ -42,7 +42,7 @@ export function Footer() {
             )}
           </div>
         </div>
-        <p className="mt-12 text-center text-xs text-slate-300">
+        <p className="mt-12 text-center text-sm text-slate-300">
           © {new Date().getFullYear()} {site.siteName}. All rights reserved.
         </p>
       </div>
