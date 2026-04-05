@@ -124,6 +124,14 @@ export const site = {
         },
       ],
     },
+    {
+      id: 'sign-of-times',
+      title: 'Sign of Times',
+      description:
+        'This project examines the challenges, risk and protective factors, and adaptation processes of newcomer immigrant children, with a focus on culturally responsive, trauma-informed interventions to support their emotional, social, and academic well-being.',
+      href: '/Sign of Times.pdf',
+      kind: 'pdf',
+    },
   ] satisfies PortfolioItem[],
 } as const
 
